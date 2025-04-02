@@ -45,9 +45,6 @@ class AGoblinJam25Character : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* LookAction;
 
-	/** Interaction Input Action */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	class UInputAction* InteractionAction;
 	
 public:
 	AGoblinJam25Character();
@@ -58,10 +55,6 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
-
-	void Interact();
-
-	bool bIsInteracting;
 
 protected:
 	// APawn interface

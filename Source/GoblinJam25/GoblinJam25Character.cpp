@@ -67,10 +67,6 @@ void AGoblinJam25Character::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AGoblinJam25Character::Look);
-
-		//Interact
-		EnhancedInputComponent->BindAction(InteractionAction, ETriggerEvent::Started, this, &AGoblinJam25Character::Interact);
-		EnhancedInputComponent->BindAction(InteractionAction, ETriggerEvent::Completed, this, &AGoblinJam25Character::Interact);
 	}
 	else
 	{
@@ -102,13 +98,5 @@ void AGoblinJam25Character::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
-	}
-}
-
-void AGoblinJam25Character::Interact()
-{
-	if (!bIsInteracting)
-	{
-		bIsInteracting = true;
 	}
 }
