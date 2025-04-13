@@ -104,7 +104,7 @@ void UGoblinJam25WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReas
 	// ensure we have a character owner
 	if (Character != nullptr)
 	{
-		// remove the input mapping context from the Player Controller
+		// remove the input mapping context from the Player Controllers
 		if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
 		{
 			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
