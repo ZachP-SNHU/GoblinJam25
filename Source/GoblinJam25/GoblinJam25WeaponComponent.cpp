@@ -58,7 +58,7 @@ void UGoblinJam25WeaponComponent::Fire()
 	if (FireAnimation != nullptr)
 	{
 		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Character->GetMesh1P()->GetAnimInstance();
+		UAnimInstance* AnimInstance = Character->GetMesh()->GetAnimInstance();
 		if (AnimInstance != nullptr)
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
@@ -78,7 +78,7 @@ bool UGoblinJam25WeaponComponent::AttachWeapon(AGoblinJam25Character* TargetChar
 
 	// Attach the weapon to the First Person Character
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-	AttachToComponent(Character->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
+	AttachToComponent(Character->GetMesh(), AttachmentRules, FName(TEXT("GripPoint")));
 
 	// Set up action bindings
 	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
@@ -104,7 +104,7 @@ void UGoblinJam25WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReas
 	// ensure we have a character owner
 	if (Character != nullptr)
 	{
-		// remove the input mapping context from the Player Controller
+		// remove the input mapping context from the Player Controllers
 		if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
 		{
 			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
